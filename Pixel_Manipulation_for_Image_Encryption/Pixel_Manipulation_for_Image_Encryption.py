@@ -3,27 +3,21 @@ import numpy as np
 
 def encrypt_image(image_path, output_path, key):
     image = Image.open(image_path)
-    image_data = np.array(image)
+    image_data = np.array(image, dtype=np.int32)
 
-    # Ensure the key is in the valid range for uint8
-    key = key % 256
-
-    # Encrypt the image by adding the key and applying modulo 256
-    encrypted_data = (image_data + key) % 256
-    encrypted_image = Image.fromarray(encrypted_data.astype('uint8'))
+    # Encrypt the image by adding the key
+    encrypted_data = image_data + key
+    encrypted_image = Image.fromarray(np.clip(encrypted_data, 0, 255).astype('uint8'))
     encrypted_image.save(output_path)
     print(f"Encrypted image saved to {output_path}")
 
 def decrypt_image(image_path, output_path, key):
     image = Image.open(image_path)
-    image_data = np.array(image)
+    image_data = np.array(image, dtype=np.int32)
 
-    # Ensure the key is in the valid range for uint8
-    key = key % 256
-
-    # Decrypt the image by subtracting the key and applying modulo 256
-    decrypted_data = (image_data - key) % 256
-    decrypted_image = Image.fromarray(decrypted_data.astype('uint8'))
+    # Decrypt the image by subtracting the key
+    decrypted_data = image_data - key
+    decrypted_image = Image.fromarray(np.clip(decrypted_data, 0, 255).astype('uint8'))
     decrypted_image.save(output_path)
     print(f"Decrypted image saved to {output_path}")
 
