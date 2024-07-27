@@ -1,4 +1,4 @@
-<h3>Explanation:</h3>
+<h2>Explanation:</h2>
 <p>Import libraries: Import Pillow for image processing and numpy for working with arrays.</p>
 <h2>Encryption and decryption functions:</h2>
 <p>encrypt_image: Reads the image, applies encryption by adding the key to pixel values, and saves the encrypted image.</p>
