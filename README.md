@@ -30,7 +30,7 @@ The objectives of this training are to:
 
 During the training, I will be working on several projects to apply the skills and knowledge gained. These projects include:
 
-- Caesar Cipher Program = Post on Linkedin: https://shorturl.at/2HZ1y
+- Caesar Cipher Program
 - Network Packet Analyzer
 - Password Complexity Checker
 - Pixel Manipulation for Image Encryption
